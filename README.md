@@ -31,14 +31,41 @@ code). If that happens:
    for price/title/location.
 4. Update the `soup.select(...)` calls in `parse_listing_cards()` to match.
 
-## 5. Schedule it to run automatically
+## 5. Results
+
+Every run writes:
+- `monitor_log.txt` — raw run history (local runs only, via `run_monitor.bat`).
+- `opportunities.html` — a browsable table of every opportunity found so
+  far, sorted by best price/m² first. Backed by `found_opportunities.json`.
+
+## 6. Schedule it to run automatically
+
+**Option A — GitHub Actions (works even when your machine is off).**
+This repo includes `.github/workflows/monitor.yml`, which runs the script
+hourly on GitHub's servers and commits the updated `opportunities.html`,
+`seen_listings.json`, and `found_opportunities.json` back to the repo. To
+use it:
+1. Push this repo to GitHub (`gh repo create ... --push`).
+2. Enable GitHub Pages (Settings → Pages → Deploy from branch → `master` /
+   `/`, or `gh api -X POST repos/<owner>/<repo>/pages -f "source[branch]=master" -f "source[path]=/"`).
+3. View results any time at `https://<username>.github.io/<repo>/opportunities.html`.
+4. Trigger a run manually with `gh workflow run monitor.yml`, or wait for
+   the hourly schedule.
+
+Only run **one** scheduler at a time (GitHub Actions *or* local) — running
+both hits OLX twice as often and leaves the local and remote state files
+(`seen_listings.json`, etc.) out of sync with each other.
+
+**Option B — locally (only runs while your machine is on).**
+- **Windows**: `run_monitor.bat` is already wired into Task Scheduler as a
+  task named "OLX Monitor" (currently disabled in favor of GitHub Actions
+  — re-enable with `schtasks /change /tn "OLX Monitor" /enable` if you
+  want to run locally instead).
 - **Linux/Mac (cron)**: `crontab -e`, then add a line like:
   ```
-  */30 * * * * cd /path/to/olx_monitor && /usr/bin/python3 monitor_olx.py >> log.txt 2>&1
+  0 * * * * cd /path/to/olx_monitor && /usr/bin/python3 monitor_olx.py >> monitor_log.txt 2>&1
   ```
-  (runs every 30 minutes)
-- **Windows**: use Task Scheduler to run `python monitor_olx.py` on a
-  recurring trigger, with "Start in" set to the script's folder.
+  (runs hourly)
 
 ## A note on scraping etiquette
 - Don't set the check interval too aggressively (every 20-30+ minutes is
