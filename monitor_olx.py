@@ -60,8 +60,11 @@ SEARCH_URLS = [
 # search). Adjust based on the market research you already did for Cluj.
 MAX_PRICE_PER_SQM = 2200
 
-# How many listing pages deep to check per search URL
-MAX_PAGES = 3
+# Safety ceiling on how many listing pages deep to check per search URL.
+# In practice pagination stops well before this once it detects the last
+# real page or catches up to listings already seen in a previous run (see
+# scrape_search) — this just bounds worst case if that detection ever fails.
+MAX_PAGES = 60
 
 # Where to keep track of listings we've already alerted on, so we don't
 # spam repeat notifications for the same ad.
@@ -220,8 +223,19 @@ def parse_listing_cards(soup: BeautifulSoup) -> list[Listing]:
     return listings
 
 
-def scrape_search(base_url: str, max_pages: int) -> list[Listing]:
+def scrape_search(base_url: str, max_pages: int, seen: set) -> list[Listing]:
+    """Page through a search, stopping as soon as we've covered everything new.
+
+    Two end-of-results signals are handled:
+    - OLX doesn't return an empty page past the last real one — it silently
+      redirects back to page 1's results. We detect this by comparing the
+      first listing id on each page to page 1's first listing id.
+    - Once a page contains zero listings we haven't seen in a previous run,
+      we've caught up to already-processed territory (OLX sorts newest
+      first), so there's no need to keep paging further.
+    """
     all_listings = []
+    first_page_first_id = None
     for page in range(1, max_pages + 1):
         url = base_url if page == 1 else f"{base_url}?page={page}"
         log.info(f"Fetching page {page}: {url}")
@@ -232,7 +246,19 @@ def scrape_search(base_url: str, max_pages: int) -> list[Listing]:
         if not page_listings:
             log.info("No more listings found, stopping pagination.")
             break
+
+        if page == 1:
+            first_page_first_id = page_listings[0].listing_id
+        elif page_listings[0].listing_id == first_page_first_id:
+            log.info(f"Page {page} matches page 1 (past the last real page); stopping pagination.")
+            break
+
         all_listings.extend(page_listings)
+
+        if all(l.listing_id in seen for l in page_listings):
+            log.info(f"Page {page} had no unseen listings; assuming we've caught up, stopping pagination.")
+            break
+
         time.sleep(REQUEST_DELAY)
     return all_listings
 
@@ -409,7 +435,7 @@ def main() -> None:
     new_opportunities = []
 
     for search_url in SEARCH_URLS:
-        listings = scrape_search(search_url, MAX_PAGES)
+        listings = scrape_search(search_url, MAX_PAGES, seen)
         log.info(f"Parsed {len(listings)} listings from {search_url}")
 
         for listing in listings:
