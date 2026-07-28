@@ -57,8 +57,14 @@ SEARCH_URLS = [
 
 # Flag a listing as a "good opportunity" if its price per m2 is at or below
 # this value (in EUR or RON — match whatever currency OLX shows for your
-# search). Adjust based on the market research you already did for Cluj.
-MAX_PRICE_PER_SQM = 2200
+# search). This is the upper bound for what gets stored at all — the HTML
+# report then lets you filter down further into the bands below.
+MAX_PRICE_PER_SQM = 3000
+
+# Price/m2 bands offered as a dropdown filter in the HTML report. Each band
+# is [lower, upper) except the last, which includes MAX_PRICE_PER_SQM.
+# Adjust based on the market research you already did for Cluj.
+PRICE_BANDS = [2200, 2500, 2800, 3000]
 
 # Safety ceiling on how many listing pages deep to check per search URL.
 # In practice pagination stops well before this once it detects the last
@@ -341,17 +347,31 @@ def _escape_html(value) -> str:
     )
 
 
+def _price_bands() -> list[tuple[float, float]]:
+    """Turn PRICE_BANDS into (lower, upper) pairs, e.g. [2200, 2500, 2800, 3000]
+    -> [(0, 2200), (2200, 2500), (2500, 2800), (2800, 3000)]."""
+    bounds = [0] + list(PRICE_BANDS)
+    return [(bounds[i - 1], bounds[i]) for i in range(1, len(bounds))]
+
+
 def generate_html_report(found: dict) -> None:
     """Render the cumulative list of opportunities as a browsable HTML table,
-    best price/m2 first."""
+    best price/m2 first, with a dropdown to filter by price/m2 band."""
     rows = sorted(
         found.values(),
         key=lambda r: r["price_per_sqm"] if r["price_per_sqm"] is not None else float("inf"),
     )
 
+    bands = _price_bands()
+    band_options = "".join(
+        f'<option value="{lo},{hi}">{"≤ " + f"{hi:,.0f}" if lo == 0 else f"{lo:,.0f} – {hi:,.0f}"} €/m²</option>'
+        for lo, hi in bands
+    )
+    all_option = f'<option value="0,{PRICE_BANDS[-1]}" selected>All (≤ {PRICE_BANDS[-1]:,.0f} €/m²)</option>'
+
     table_rows = "".join(
         f"""
-        <tr>
+        <tr data-pps="{r['price_per_sqm']}">
           <td>{i}</td>
           <td><a href="{_escape_html(r['url'])}" target="_blank" rel="noopener">{_escape_html(r['title'])}</a></td>
           <td>{r['price']:,.0f}</td>
@@ -387,7 +407,13 @@ def generate_html_report(found: dict) -> None:
     background: #f7f7f8; color: #1a1a1a;
   }}
   h1 {{ font-size: 1.4rem; margin: 0 0 0.2rem; }}
-  .subtitle {{ color: #666; margin-bottom: 1.5rem; font-size: 0.9rem; }}
+  .subtitle {{ color: #666; margin-bottom: 1rem; font-size: 0.9rem; }}
+  .controls {{ margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }}
+  .controls label {{ font-size: 0.9rem; color: #444; }}
+  select {{
+    font: inherit; font-size: 0.9rem; padding: 0.4rem 0.6rem;
+    border-radius: 6px; border: 1px solid #ccc; background: #fff; color: #1a1a1a;
+  }}
   table {{
     width: 100%; border-collapse: collapse; background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12); border-radius: 8px; overflow: hidden;
@@ -396,6 +422,7 @@ def generate_html_report(found: dict) -> None:
   th {{ background: #eef0f3; font-weight: 600; }}
   tr:nth-child(even) {{ background: #fafafa; }}
   tr:hover {{ background: #eef6ff; }}
+  tr.hidden {{ display: none; }}
   a {{ color: #0a66c2; text-decoration: none; }}
   a:hover {{ text-decoration: underline; }}
   .price-per-sqm {{ font-weight: 600; }}
@@ -408,17 +435,48 @@ def generate_html_report(found: dict) -> None:
     tr:hover {{ background: #2b3446; }}
     a {{ color: #7db8ff; }}
     .subtitle {{ color: #999; }}
+    .controls label {{ color: #ccc; }}
+    select {{ background: #1f2229; color: #e6e6e6; border-color: #3a3f4b; }}
   }}
 </style>
 </head>
 <body>
   <h1>OLX Cluj-Napoca — Good Deals</h1>
   <div class="subtitle">
-    Threshold: ≤ {MAX_PRICE_PER_SQM:,.0f} / m² &nbsp;•&nbsp;
-    {len(rows)} opportunit{'y' if len(rows) == 1 else 'ies'} found so far &nbsp;•&nbsp;
+    <span id="visible-count">{len(rows)}</span> of {len(rows)} opportunit{'y' if len(rows) == 1 else 'ies'} shown &nbsp;•&nbsp;
     Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M')}
   </div>
+  <div class="controls">
+    <label for="band-filter">Price/m² range:</label>
+    <select id="band-filter">
+      {all_option}
+      {band_options}
+    </select>
+  </div>
   {body}
+  <script>
+    (function() {{
+      var select = document.getElementById('band-filter');
+      var countEl = document.getElementById('visible-count');
+      var rows = document.querySelectorAll('tbody tr[data-pps]');
+      if (!select) return;
+      function applyFilter() {{
+        var parts = select.value.split(',');
+        var min = parseFloat(parts[0]);
+        var max = parseFloat(parts[1]);
+        var visible = 0;
+        rows.forEach(function(row) {{
+          var pps = parseFloat(row.getAttribute('data-pps'));
+          var show = pps >= min && pps <= max;
+          row.classList.toggle('hidden', !show);
+          if (show) visible++;
+        }});
+        if (countEl) countEl.textContent = visible;
+      }}
+      select.addEventListener('change', applyFilter);
+      applyFilter();
+    }})();
+  </script>
 </body>
 </html>
 """
