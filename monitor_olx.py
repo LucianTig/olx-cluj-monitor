@@ -371,7 +371,7 @@ def generate_html_report(found: dict) -> None:
 
     table_rows = "".join(
         f"""
-        <tr data-pps="{r['price_per_sqm']}">
+        <tr data-pps="{r['price_per_sqm']}" data-title="{_escape_html(r['title'].lower())}">
           <td>{i}</td>
           <td><a href="{_escape_html(r['url'])}" target="_blank" rel="noopener">{_escape_html(r['title'])}</a></td>
           <td>{r['price']:,.0f}</td>
@@ -408,12 +408,13 @@ def generate_html_report(found: dict) -> None:
   }}
   h1 {{ font-size: 1.4rem; margin: 0 0 0.2rem; }}
   .subtitle {{ color: #666; margin-bottom: 1rem; font-size: 0.9rem; }}
-  .controls {{ margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }}
+  .controls {{ margin-bottom: 1.2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; }}
   .controls label {{ font-size: 0.9rem; color: #444; }}
-  select {{
+  select, input[type="search"] {{
     font: inherit; font-size: 0.9rem; padding: 0.4rem 0.6rem;
     border-radius: 6px; border: 1px solid #ccc; background: #fff; color: #1a1a1a;
   }}
+  input[type="search"] {{ min-width: 220px; }}
   table {{
     width: 100%; border-collapse: collapse; background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12); border-radius: 8px; overflow: hidden;
@@ -436,7 +437,7 @@ def generate_html_report(found: dict) -> None:
     a {{ color: #7db8ff; }}
     .subtitle {{ color: #999; }}
     .controls label {{ color: #ccc; }}
-    select {{ background: #1f2229; color: #e6e6e6; border-color: #3a3f4b; }}
+    select, input[type="search"] {{ background: #1f2229; color: #e6e6e6; border-color: #3a3f4b; }}
   }}
 </style>
 </head>
@@ -452,29 +453,35 @@ def generate_html_report(found: dict) -> None:
       {all_option}
       {band_options}
     </select>
+    <label for="search-box">Search listing:</label>
+    <input type="search" id="search-box" placeholder="e.g. central">
   </div>
   {body}
   <script>
     (function() {{
       var select = document.getElementById('band-filter');
+      var search = document.getElementById('search-box');
       var countEl = document.getElementById('visible-count');
       var rows = document.querySelectorAll('tbody tr[data-pps]');
-      if (!select) return;
-      function applyFilter() {{
+      if (!select || !search) return;
+      function applyFilters() {{
         var parts = select.value.split(',');
         var min = parseFloat(parts[0]);
         var max = parseFloat(parts[1]);
+        var query = search.value.trim().toLowerCase();
         var visible = 0;
         rows.forEach(function(row) {{
           var pps = parseFloat(row.getAttribute('data-pps'));
-          var show = pps >= min && pps <= max;
+          var title = row.getAttribute('data-title') || '';
+          var show = pps >= min && pps <= max && (!query || title.indexOf(query) !== -1);
           row.classList.toggle('hidden', !show);
           if (show) visible++;
         }});
         if (countEl) countEl.textContent = visible;
       }}
-      select.addEventListener('change', applyFilter);
-      applyFilter();
+      select.addEventListener('change', applyFilters);
+      search.addEventListener('input', applyFilters);
+      applyFilters();
     }})();
   </script>
 </body>
