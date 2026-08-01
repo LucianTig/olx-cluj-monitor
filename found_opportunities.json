@@ -7028,5 +7028,35 @@
     "location": "Cluj-Napoca - Azi la 18:39",
     "url": "https://www.storia.ro/ro/oferta/garsoniera-cu-gradina-proprie-zona-centrala-cluj-langa-the-office-0-IDDCb6",
     "found_at": "2026-07-31 19:38"
+  },
+  "307027290": {
+    "listing_id": "307027290",
+    "title": "Apartament 3 camere, 71 mp + 54 mp terase, imobil tip vila, Marasti",
+    "price": 200000.0,
+    "area_sqm": 71.0,
+    "price_per_sqm": 2816.9,
+    "location": "Cluj-Napoca - Reactualizat azi la 10:24",
+    "url": "https://www.olx.ro/d/oferta/apartament-3-camere-71-mp-54-mp-terase-imobil-tip-vila-marasti-IDkMfP4.html?search_reason=search%7Corganic",
+    "found_at": "2026-08-01 11:19"
+  },
+  "307027186": {
+    "listing_id": "307027186",
+    "title": "Apartament 4 camere 121 mp + 150 mp gradina, imobil tip vila, Marasti",
+    "price": 349000.0,
+    "area_sqm": 121.0,
+    "price_per_sqm": 2884.3,
+    "location": "Cluj-Napoca - Reactualizat azi la 10:21",
+    "url": "https://www.olx.ro/d/oferta/apartament-4-camere-121-mp-150-mp-gradina-imobil-tip-vila-marasti-IDkMfNo.html?search_reason=search%7Corganic",
+    "found_at": "2026-08-01 11:19"
+  },
+  "298894919": {
+    "listing_id": "298894919",
+    "title": "Garsoniera 27mp, cart Bulgaria",
+    "price": 56000.0,
+    "area_sqm": 27.0,
+    "price_per_sqm": 2074.07,
+    "location": "Cluj-Napoca - Azi la 09:33",
+    "url": "https://www.storia.ro/ro/oferta/garsoniera-27mp-cart-bulgaria-IDGezV",
+    "found_at": "2026-08-01 11:19"
   }
 }
