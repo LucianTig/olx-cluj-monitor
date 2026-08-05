@@ -9158,5 +9158,35 @@
     "location": "Cluj-Napoca - 02 august 2026",
     "url": "https://www.storia.ro/ro/oferta/apartament-cu-3-camere-in-gheorgheni-zona-brancusi-IDFw9v",
     "found_at": "2026-08-03 15:47"
+  },
+  "307580660": {
+    "listing_id": "307580660",
+    "title": "Apart. 4 camere, 64 mp, parcare, str. Mehedinti, zona Minerva",
+    "price": 165000.0,
+    "area_sqm": 64.0,
+    "price_per_sqm": 2578.12,
+    "location": "Cluj-Napoca - 04 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apart-4-camere-64-mp-parcare-str-mehedinti-zona-minerva-IDI6j1",
+    "found_at": "2026-08-05 00:07"
+  },
+  "307545297": {
+    "listing_id": "307545297",
+    "title": "Apartament potrivit pentru investitie - 2 Camere | Etaj 3/4 - Manastur",
+    "price": 96900.0,
+    "area_sqm": 35.0,
+    "price_per_sqm": 2768.57,
+    "location": "Cluj-Napoca - 03 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-potrivit-pentru-investitie-2-camere-etaj-3-4-manastur-IDI5rA",
+    "found_at": "2026-08-05 00:07"
+  },
+  "305211593": {
+    "listing_id": "305211593",
+    "title": "2 camere, bloc nou, zona Revo Fitness Iris",
+    "price": 145000.0,
+    "area_sqm": 52.0,
+    "price_per_sqm": 2788.46,
+    "location": "Cluj-Napoca - Reactualizat la 04 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/2-camere-bloc-nou-zona-revo-fitness-iris-IDHyvm",
+    "found_at": "2026-08-05 00:07"
   }
 }
