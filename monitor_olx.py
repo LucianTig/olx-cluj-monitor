@@ -371,7 +371,7 @@ def generate_html_report(found: dict) -> None:
 
     table_rows = "".join(
         f"""
-        <tr data-pps="{r['price_per_sqm']}" data-title="{_escape_html(r['title'].lower())}">
+        <tr data-pps="{r['price_per_sqm']}" data-title="{_escape_html(r['title'].lower())}" data-found-date="{_escape_html(r.get('found_at', '')[:10])}">
           <td>{i}</td>
           <td><a href="{_escape_html(r['url'])}" target="_blank" rel="noopener">{_escape_html(r['title'])}</a></td>
           <td>{r['price']:,.0f}</td>
@@ -455,25 +455,37 @@ def generate_html_report(found: dict) -> None:
     </select>
     <label for="search-box">Search listing:</label>
     <input type="search" id="search-box" placeholder="e.g. central">
+    <label for="date-from">Found between:</label>
+    <input type="date" id="date-from">
+    <span>and</span>
+    <input type="date" id="date-to">
   </div>
   {body}
   <script>
     (function() {{
       var select = document.getElementById('band-filter');
       var search = document.getElementById('search-box');
+      var dateFrom = document.getElementById('date-from');
+      var dateTo = document.getElementById('date-to');
       var countEl = document.getElementById('visible-count');
       var rows = document.querySelectorAll('tbody tr[data-pps]');
-      if (!select || !search) return;
+      if (!select || !search || !dateFrom || !dateTo) return;
       function applyFilters() {{
         var parts = select.value.split(',');
         var min = parseFloat(parts[0]);
         var max = parseFloat(parts[1]);
         var query = search.value.trim().toLowerCase();
+        var from = dateFrom.value;
+        var to = dateTo.value;
         var visible = 0;
         rows.forEach(function(row) {{
           var pps = parseFloat(row.getAttribute('data-pps'));
           var title = row.getAttribute('data-title') || '';
-          var show = pps >= min && pps <= max && (!query || title.indexOf(query) !== -1);
+          var foundDate = row.getAttribute('data-found-date') || '';
+          var show = pps >= min && pps <= max
+            && (!query || title.indexOf(query) !== -1)
+            && (!from || !foundDate || foundDate >= from)
+            && (!to || !foundDate || foundDate <= to);
           row.classList.toggle('hidden', !show);
           if (show) visible++;
         }});
@@ -481,6 +493,8 @@ def generate_html_report(found: dict) -> None:
       }}
       select.addEventListener('change', applyFilters);
       search.addEventListener('input', applyFilters);
+      dateFrom.addEventListener('change', applyFilters);
+      dateTo.addEventListener('change', applyFilters);
       applyFilters();
     }})();
   </script>
