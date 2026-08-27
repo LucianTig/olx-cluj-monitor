@@ -22,14 +22,23 @@ The first run will report all currently-matching listings (since none are
 "seen" yet). After that, it only alerts on *new* listings that appear.
 
 ## 4. If it stops finding listings
-OLX periodically changes its page's HTML structure, which can break the
-CSS selectors this script relies on (marked with `ADJUST_SELECTOR` in the
-code). If that happens:
-1. Open the OLX search page in your browser.
-2. Right-click a listing → "Inspect".
-3. Find the container element for a listing card and any nested elements
-   for price/title/location.
-4. Update the `soup.select(...)` calls in `parse_listing_cards()` to match.
+Two different failure modes look similar (0 listings parsed) but need
+different fixes — check the log for which one it is:
+- **`403 Client Error` / "Request blocked" in the log**: OLX's CloudFront
+  WAF is blocking the request by TLS/HTTP fingerprint (not just
+  User-Agent). This script already works around it with `curl_cffi`'s
+  Chrome impersonation (`IMPERSONATE` near the top of the file) — if it
+  starts happening again, try bumping `IMPERSONATE` to a newer Chrome
+  version string (curl_cffi ships a fixed set of supported versions).
+- **No error, just 0 cards parsed**: OLX changed its page's HTML
+  structure, breaking the CSS selectors this script relies on (marked
+  with `ADJUST_SELECTOR` in the code). If that happens:
+  1. Open the OLX search page in your browser.
+  2. Right-click a listing → "Inspect".
+  3. Find the container element for a listing card and any nested
+     elements for price/title/location.
+  4. Update the `soup.select(...)` calls in `parse_listing_cards()` to
+     match.
 
 ## 5. Results
 
@@ -42,15 +51,15 @@ Every run writes:
 
 **Option A — GitHub Actions (works even when your machine is off).**
 This repo includes `.github/workflows/monitor.yml`, which runs the script
-hourly on GitHub's servers and commits the updated `opportunities.html`,
-`seen_listings.json`, and `found_opportunities.json` back to the repo. To
-use it:
+once a day (07:00 UTC) on GitHub's servers and commits the updated
+`opportunities.html`, `seen_listings.json`, and `found_opportunities.json`
+back to the repo. To use it:
 1. Push this repo to GitHub (`gh repo create ... --push`).
 2. Enable GitHub Pages (Settings → Pages → Deploy from branch → `master` /
    `/`, or `gh api -X POST repos/<owner>/<repo>/pages -f "source[branch]=master" -f "source[path]=/"`).
 3. View results any time at `https://<username>.github.io/<repo>/opportunities.html`.
 4. Trigger a run manually with `gh workflow run monitor.yml`, or wait for
-   the hourly schedule.
+   the daily schedule.
 
 Only run **one** scheduler at a time (GitHub Actions *or* local) — running
 both hits OLX twice as often and leaves the local and remote state files

@@ -11,17 +11,19 @@ IMPORTANT NOTES BEFORE YOU RUN THIS:
    can change, which will break the CSS selectors below (search for
    "ADJUST_SELECTOR" comments if that happens — inspect the page with your
    browser's DevTools and update accordingly).
-2. Be a polite scraper: don't run this more often than every 20-30 minutes,
-   set a real User-Agent, and don't hammer the site with parallel requests.
-   Check OLX's robots.txt / terms of service for any restrictions on
-   automated access before relying on this long-term.
+2. Be a polite scraper: don't run this too often, and don't hammer the
+   site with parallel requests. Check OLX's robots.txt / terms of service
+   for any restrictions on automated access before relying on this
+   long-term. Requests go through curl_cffi with Chrome TLS impersonation
+   (see IMPERSONATE below) because OLX's CloudFront WAF blocks plain HTTP
+   clients by TLS/HTTP fingerprint, not just by User-Agent header.
 3. Prices/areas are parsed from the listing title & card text with regex —
    real listings are messy, so some entries may be skipped if they don't
    match the expected pattern. That's expected and safe (better to skip than
    to misread a price).
 
 SETUP:
-    pip install requests beautifulsoup4
+    pip install curl_cffi beautifulsoup4
 
 USAGE:
     python monitor_olx.py
@@ -41,7 +43,8 @@ from email.mime.text import MIMEText
 from pathlib import Path
 from typing import Optional
 
-import requests
+from curl_cffi import requests
+from curl_cffi.requests.exceptions import RequestException
 from bs4 import BeautifulSoup
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -92,12 +95,10 @@ EMAIL_APP_PASSWORD = "your_app_password"   # use an app-specific password, not y
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-    )
-}
+# OLX's CloudFront WAF blocks plain HTTP clients by TLS/HTTP fingerprint,
+# not just User-Agent — curl_cffi's `impersonate` reproduces a real Chrome
+# fingerprint end-to-end, so no extra headers are needed here.
+IMPERSONATE = "chrome124"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -127,10 +128,10 @@ class Listing:
 
 def fetch_page(url: str) -> Optional[BeautifulSoup]:
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=15)
+        resp = requests.get(url, impersonate=IMPERSONATE, timeout=15)
         resp.raise_for_status()
         return BeautifulSoup(resp.text, "html.parser")
-    except requests.RequestException as e:
+    except RequestException as e:
         log.error(f"Failed to fetch {url}: {e}")
         return None
 
