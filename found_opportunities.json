@@ -13868,5 +13868,365 @@
     "location": "Cluj-Napoca - 24 august 2026",
     "url": "https://www.storia.ro/ro/oferta/apartament-2-camere-etaj-intermediar-garaj-inclus-in-pret-dambu-ro-IDGOyq",
     "found_at": "2026-08-28 19:09"
+  },
+  "308639948": {
+    "listing_id": "308639948",
+    "title": "Garsoniera, Cluj-Napoca",
+    "price": 40000.0,
+    "area_sqm": 21.0,
+    "price_per_sqm": 1904.76,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/garsoniera-cluj-napoca-IDImlU",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308631830": {
+    "listing_id": "308631830",
+    "title": "Garsoniera, Gheorgheni",
+    "price": 36000.0,
+    "area_sqm": 12.0,
+    "price_per_sqm": 3000.0,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/garsoniera-gheorgheni-IDImgJ",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308593372": {
+    "listing_id": "308593372",
+    "title": "Apartament 2 camere | Etaj Intermediar | Decomandat | Gheorgheni",
+    "price": 140000.0,
+    "area_sqm": 49.0,
+    "price_per_sqm": 2857.14,
+    "location": "Cluj-Napoca - 28 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-2-camere-etaj-intermediar-decomandat-gheorgheni-IDIlXE",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308583960": {
+    "listing_id": "308583960",
+    "title": "Garsoniera de vanzare | Marasti–zona Dejului/Expo Transilvania",
+    "price": 67000.0,
+    "area_sqm": 23.0,
+    "price_per_sqm": 2913.04,
+    "location": "Cluj-Napoca - 28 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/garsoniera-de-vanzare-marastizona-dejului-expo-transilvania-IDIlOG",
+    "found_at": "2026-08-30 12:24"
+  },
+  "290250434": {
+    "listing_id": "290250434",
+    "title": "Apartament 3 camere, 64 mp, Manastur, parter, logie, bloc izolat termi",
+    "price": 187000.0,
+    "area_sqm": 64.0,
+    "price_per_sqm": 2921.88,
+    "location": "Cluj-Napoca - Reactualizat azi la 07:56",
+    "url": "https://www.storia.ro/ro/oferta/apartament-3-camere-64-mp-manastur-parter-logie-bloc-izolat-termi-IDEl73",
+    "found_at": "2026-08-30 12:24"
+  },
+  "293628049": {
+    "listing_id": "293628049",
+    "title": "Apartament 3 camere | 64mp | Bloc nou | Manastur - Frunzisului!",
+    "price": 150000.0,
+    "area_sqm": 64.0,
+    "price_per_sqm": 2343.75,
+    "location": "Cluj-Napoca - Azi la 08:35",
+    "url": "https://www.storia.ro/ro/oferta/apartament-3-camere-64mp-bloc-nou-manastur-frunzisului-IDFa3H",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308630544": {
+    "listing_id": "308630544",
+    "title": "Ap 2 camere | BALCON | BOXA | Zona Manastur-BIG",
+    "price": 135000.0,
+    "area_sqm": 48.0,
+    "price_per_sqm": 2812.5,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/ap-2-camere-balcon-boxa-zona-manastur-big-IDImfT",
+    "found_at": "2026-08-30 12:24"
+  },
+  "299485535": {
+    "listing_id": "299485535",
+    "title": "Vând ap. / 3 spații servicii renovate ultracentral 21 Decembrie nr. 50",
+    "price": 205000.0,
+    "area_sqm": 71.0,
+    "price_per_sqm": 2887.32,
+    "location": "Cluj-Napoca - Reactualizat la 29 august 2026",
+    "url": "https://www.olx.ro/d/oferta/vand-ap-3-spatii-servicii-renovate-ultracentral-21-decembrie-nr-50-IDkgBRR.html?search_reason=search%7Corganic",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308630164": {
+    "listing_id": "308630164",
+    "title": "Apartament 3 camere, Taietura Turcului",
+    "price": 179000.0,
+    "area_sqm": 67.0,
+    "price_per_sqm": 2671.64,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-3-camere-taietura-turcului-IDImfI",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308643245": {
+    "listing_id": "308643245",
+    "title": "2600mp,  2 camere, de vanzare, 2 balcoane, Marasti",
+    "price": 129900.0,
+    "area_sqm": 2600.0,
+    "price_per_sqm": 49.96,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/2600mp-2-camere-de-vanzare-2-balcoane-marasti-IDImnB",
+    "found_at": "2026-08-30 12:24"
+  },
+  "277948475": {
+    "listing_id": "277948475",
+    "title": "Apartament cu 3 camere, zona BIG, Manastur",
+    "price": 134900.0,
+    "area_sqm": 50.0,
+    "price_per_sqm": 2698.0,
+    "location": "Cluj-Napoca - Azi la 07:24",
+    "url": "https://www.storia.ro/ro/oferta/apartament-cu-3-camere-zona-big-manastur-IDBVUl",
+    "found_at": "2026-08-30 12:24"
+  },
+  "306283904": {
+    "listing_id": "306283904",
+    "title": "Apartament 2 camere, parter, Calea Turzii, Buna Ziua",
+    "price": 105000.0,
+    "area_sqm": 50.0,
+    "price_per_sqm": 2100.0,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-2-camere-parter-calea-turzii-buna-ziua-IDHNbE",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308640068": {
+    "listing_id": "308640068",
+    "title": "Ap 1 Cameră | 42 Mp | Calea Mănăștur | Parter | Aproape De Platini",
+    "price": 111000.0,
+    "area_sqm": 42.0,
+    "price_per_sqm": 2642.86,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/ap-1-camer-42-mp-calea-mntur-parter-aproape-de-platini-IDImm0",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308632515": {
+    "listing_id": "308632515",
+    "title": "Apartamen 1 camera I Gruia",
+    "price": 124900.0,
+    "area_sqm": 42.0,
+    "price_per_sqm": 2973.81,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartamen-1-camera-i-gruia-IDImhb",
+    "found_at": "2026-08-30 12:24"
+  },
+  "282573456": {
+    "listing_id": "282573456",
+    "title": "Ap 3 cam Zorilor - zona Golden Tulip - 175 000 Euro",
+    "price": 175000.0,
+    "area_sqm": 65.0,
+    "price_per_sqm": 2692.31,
+    "location": "Cluj-Napoca - Azi la 11:55",
+    "url": "https://www.storia.ro/ro/oferta/ap-3-cam-zorilor-zona-golden-tulip-175-000-euro-IDCIlj",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308639383": {
+    "listing_id": "308639383",
+    "title": "OFERTĂ EXCELENTĂ | 2 camere+balcon | Etaj 2 | Lift | Complex Oasului",
+    "price": 118000.0,
+    "area_sqm": 42.0,
+    "price_per_sqm": 2809.52,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/ofert-excelent-2-camere-balcon-etaj-2-lift-complex-oasului-IDImlo",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308638003": {
+    "listing_id": "308638003",
+    "title": "Ap 3 camere | PARCARE | zona Manastur/Edgar Quinet",
+    "price": 150000.0,
+    "area_sqm": 62.0,
+    "price_per_sqm": 2419.35,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/ap-3-camere-parcare-zona-manastur-edgar-quinet-IDImkJ",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308631431": {
+    "listing_id": "308631431",
+    "title": "Apartament 2 camere 57,8mp | balcon | parcare | Calea Baciului",
+    "price": 162000.0,
+    "area_sqm": 57.8,
+    "price_per_sqm": 2802.77,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-2-camere-57-8mp-balcon-parcare-calea-baciului-IDImgq",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308646077": {
+    "listing_id": "308646077",
+    "title": "Ap 3 camere | Balcon | Zona Manastur-Grigore Alexandrescu",
+    "price": 183000.0,
+    "area_sqm": 64.0,
+    "price_per_sqm": 2859.38,
+    "location": "Cluj-Napoca - Azi la 06:23",
+    "url": "https://www.storia.ro/ro/oferta/ap-3-camere-balcon-zona-manastur-grigore-alexandrescu-IDImoT",
+    "found_at": "2026-08-30 12:24"
+  },
+  "307443313": {
+    "listing_id": "307443313",
+    "title": "Apartament cu 3 camere decomandate de vanzare in cartierul Manastur",
+    "price": 165000.0,
+    "area_sqm": 66.0,
+    "price_per_sqm": 2500.0,
+    "location": "Cluj-Napoca - Azi la 11:43",
+    "url": "https://www.storia.ro/ro/oferta/apartament-cu-3-camere-decomandate-de-vanzare-in-cartierul-manastur-IDI41i",
+    "found_at": "2026-08-30 12:24"
+  },
+  "306065377": {
+    "listing_id": "306065377",
+    "title": "Apartament 3 camere, 62 mp, parcare, zona Mega Image - Edgar Quinet",
+    "price": 150000.0,
+    "area_sqm": 62.0,
+    "price_per_sqm": 2419.35,
+    "location": "Cluj-Napoca - Azi la 07:46",
+    "url": "https://www.storia.ro/ro/oferta/apartament-3-camere-62-mp-parcare-zona-mega-image-edgar-quinet-IDHKY9",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308654348": {
+    "listing_id": "308654348",
+    "title": "Apartament cu 3 camere I Grigorescu",
+    "price": 159900.0,
+    "area_sqm": 54.0,
+    "price_per_sqm": 2961.11,
+    "location": "Cluj-Napoca - Azi la 11:33",
+    "url": "https://www.storia.ro/ro/oferta/apartament-cu-3-camere-i-grigorescu-IDImsF",
+    "found_at": "2026-08-30 12:24"
+  },
+  "300249711": {
+    "listing_id": "300249711",
+    "title": "Apartament 174 mp in vila, Andrei Muresanu – Parcul Engels",
+    "price": 520000.0,
+    "area_sqm": 174.0,
+    "price_per_sqm": 2988.51,
+    "location": "Cluj-Napoca - Azi la 08:27",
+    "url": "https://www.storia.ro/ro/oferta/apartament-174-mp-in-vila-andrei-muresanu-parcul-engels-IDGxs4",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308637951": {
+    "listing_id": "308637951",
+    "title": "2 camere decomandat | 52 mp+balcon | Etaj 4/10 | Manastur-Calea Flores",
+    "price": 149990.0,
+    "area_sqm": 52.0,
+    "price_per_sqm": 2884.42,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/2-camere-decomandat-52-mp-balcon-etaj-4-10-manastur-calea-flores-IDImkE",
+    "found_at": "2026-08-30 12:24"
+  },
+  "292197395": {
+    "listing_id": "292197395",
+    "title": "Apartament De Vanzare Central 4 Camere",
+    "price": 260000.0,
+    "area_sqm": 95.0,
+    "price_per_sqm": 2736.84,
+    "location": "Cluj-Napoca - Azi la 10:54",
+    "url": "https://www.storia.ro/ro/oferta/apartament-de-vanzare-central-4-camere-IDENSo",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308636473": {
+    "listing_id": "308636473",
+    "title": "ACASĂ LA MARGINEA PĂDURII | 3 Camere | BALCON | Donath Park/Capat Gr",
+    "price": 180000.0,
+    "area_sqm": 69.0,
+    "price_per_sqm": 2608.7,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/acas-la-marginea-pdurii-3-camere-balcon-donath-park-capat-gr-IDImjy",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308636640": {
+    "listing_id": "308636640",
+    "title": "NOU PE PIAȚĂ | 2 camere | 45 mp | Balcon | Pod Calvaria–Calea Flor",
+    "price": 128000.0,
+    "area_sqm": 45.0,
+    "price_per_sqm": 2844.44,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/nou-pe-pia-2-camere-45-mp-balcon-pod-calvariacalea-flor-IDImjG",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308639998": {
+    "listing_id": "308639998",
+    "title": "Apartament 3 Camere | 64 MP | Garaj | Boxa | Manastur/Grigore Alexandr",
+    "price": 159000.0,
+    "area_sqm": 64.0,
+    "price_per_sqm": 2484.38,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-3-camere-64-mp-garaj-boxa-manastur-grigore-alexandr-IDImlX",
+    "found_at": "2026-08-30 12:24"
+  },
+  "307433438": {
+    "listing_id": "307433438",
+    "title": "Comision 0% I Apartament cu 2 camere I  semidecomandat I Str. Horea",
+    "price": 199000.0,
+    "area_sqm": 70.0,
+    "price_per_sqm": 2842.86,
+    "location": "Cluj-Napoca - Azi la 07:35",
+    "url": "https://www.storia.ro/ro/oferta/comision-0-i-apartament-cu-2-camere-i-semidecomandat-i-str-horea-IDI3JK",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308637468": {
+    "listing_id": "308637468",
+    "title": "Apartament 3 camere, 70mp, zona Elite city",
+    "price": 142000.0,
+    "area_sqm": 70.0,
+    "price_per_sqm": 2028.57,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-3-camere-70mp-zona-elite-city-IDImkh",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308631384": {
+    "listing_id": "308631384",
+    "title": "Apartament cu o camera, Manastur",
+    "price": 103400.0,
+    "area_sqm": 42.0,
+    "price_per_sqm": 2461.9,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-cu-o-camera-manastur-IDImgo",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308632472": {
+    "listing_id": "308632472",
+    "title": "Apartament 3 camere, renovabil I zona Piata Flora I Manastur",
+    "price": 117700.0,
+    "area_sqm": 44.0,
+    "price_per_sqm": 2675.0,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-3-camere-renovabil-i-zona-piata-flora-i-manastur-IDImh7",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308637973": {
+    "listing_id": "308637973",
+    "title": "Ap 4 camere | 2 bai | Balcon | zona Manastur/Primaverii",
+    "price": 229000.0,
+    "area_sqm": 82.0,
+    "price_per_sqm": 2792.68,
+    "location": "Cluj-Napoca - 29 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/ap-4-camere-2-bai-balcon-zona-manastur-primaverii-IDImkF",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308502107": {
+    "listing_id": "308502107",
+    "title": "Apartament 2 camere, zona Bună Ziua - Cluj",
+    "price": 122000.0,
+    "area_sqm": 52.0,
+    "price_per_sqm": 2346.15,
+    "location": "Cluj-Napoca - 25 august 2026",
+    "url": "https://www.olx.ro/d/oferta/apartament-2-camere-zona-buna-ziua-cluj-IDkSrur.html?search_reason=search%7Corganic",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308511510": {
+    "listing_id": "308511510",
+    "title": "Apartament 2 camere Str. Fabricii 11, marasti",
+    "price": 140000.0,
+    "area_sqm": 50.0,
+    "price_per_sqm": 2800.0,
+    "location": "Cluj-Napoca - 26 august 2026",
+    "url": "https://www.olx.ro/d/oferta/apartament-2-camere-str-fabricii-11-marasti-IDkStV6.html?search_reason=search%7Corganic",
+    "found_at": "2026-08-30 12:24"
+  },
+  "308459081": {
+    "listing_id": "308459081",
+    "title": "Apartament compartimentat eficient | 4 camere | Centrala termica | Man",
+    "price": 154900.0,
+    "area_sqm": 54.0,
+    "price_per_sqm": 2868.52,
+    "location": "Cluj-Napoca - 24 august 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-compartimentat-eficient-4-camere-centrala-termica-man-IDIiRy",
+    "found_at": "2026-08-30 12:24"
   }
 }
