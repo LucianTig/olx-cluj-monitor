@@ -36968,5 +36968,45 @@
     "location": "Cluj-Napoca - Azi la 09:34",
     "url": "https://www.storia.ro/ro/oferta/apartment-3-camere-2-bai-66mp-2-balcoane-manastur-zona-kaufland-IDJcXZ",
     "found_at": "2026-11-12 15:44"
+  },
+  "311930935": {
+    "listing_id": "311930935",
+    "title": "COMISION 0% | 2 camere | 48 mp | Parcare inclusă | Zorilor",
+    "price": 115000.0,
+    "area_sqm": 48.0,
+    "price_per_sqm": 2395.83,
+    "location": "Cluj-Napoca - 13 noiembrie 2026",
+    "url": "https://www.storia.ro/ro/oferta/comision-0-2-camere-48-mp-parcare-inclus-zorilor-IDJe55",
+    "found_at": "2026-11-15 14:24"
+  },
+  "311886885": {
+    "listing_id": "311886885",
+    "title": "Apartament 2 camere de vanzare in Zorilor, Cluj Napoca",
+    "price": 159000.0,
+    "area_sqm": 54.0,
+    "price_per_sqm": 2944.44,
+    "location": "Cluj-Napoca - 12 noiembrie 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-2-camere-de-vanzare-in-zorilor-cluj-napoca-IDJdqm",
+    "found_at": "2026-11-15 14:24"
+  },
+  "311956703": {
+    "listing_id": "311956703",
+    "title": "Apartament cu 2 camere, balcon si parcare Baciu zona Petrom",
+    "price": 114000.0,
+    "area_sqm": 48.0,
+    "price_per_sqm": 2375.0,
+    "location": "Cluj-Napoca - 14 noiembrie 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-cu-2-camere-balcon-si-parcare-baciu-zona-petrom-IDJenq",
+    "found_at": "2026-11-15 14:24"
+  },
+  "311865005": {
+    "listing_id": "311865005",
+    "title": "Apartament 3 camere, 66.21 mp, zona Manastur Kaufland",
+    "price": 160000.0,
+    "area_sqm": 66.21,
+    "price_per_sqm": 2416.55,
+    "location": "Cluj-Napoca - 12 noiembrie 2026",
+    "url": "https://www.storia.ro/ro/oferta/apartament-3-camere-66-21-mp-zona-manastur-kaufland-IDJcN4",
+    "found_at": "2026-11-15 14:24"
   }
 }
